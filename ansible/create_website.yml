@@ -1,0 +1,37 @@
+---
+- name: Create website on Azure machine
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Install httpd
+      ansible.builtin.package:
+        name: httpd
+        state: present
+
+    - name: Start httpd
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: Create website
+      ansible.builtin.copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Create image of Stuttgart
+      ansible.builtin.copy:
+        src: ./stuttgart-image.jpg
+        dest: /var/www/html/stuttgart-image.jpg
+        owner: root
+        group: root
+        mode: "0644"
+
+    - name: Restart httpd
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
