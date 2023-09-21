@@ -4,6 +4,7 @@ Below are resources pertaining to the ClearShark Cloud Workshop.
 
 ### Demo
 [Demo](https://vimeo.com/866701219?share=copy)
+
 ### Training
 [A Cloud Guru](https://www.pluralsight.com/cloud-guru)
 
